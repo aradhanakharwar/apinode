@@ -1,0 +1,49 @@
+<%-include ("common/HeadTag.ejs")%>
+  <%-include ("common/navbar")%>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Password</th>
+          <th scope="col">City</th>
+          <th scope="col">State</th>
+          <th scope="col" colspan="2">Update</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% let count=0; if(allData.length> 0){%>
+          <% for(let user of allData){%>
+            <% const p = user.id %>
+            <tr>
+              <th>
+                <%= p.slice(20, p.length) %>
+              </th>
+              <td>
+                <%=user.name%>
+              </td>
+              <td>
+                <%=user.email%>
+              </td>
+              <td>
+                <%=user.password%>
+              </td>
+              <td>
+                <%=user.city%>
+              </td>
+              <td>
+                <%=user.state%>
+              </td>
+              <td><a class='btn btn-success' href="/edituser/<%=user.id%>">Edit</a></td>
+              <td><a class='btn btn-danger' href="/deleteuser/<%=user.id%>">Delete</a></td>
+            </tr>
+            <%}}else{%>
+              <td>
+                <h3>No data Found</h3>
+              </td>
+              <%}%>
+      </tbody>
+    </table>

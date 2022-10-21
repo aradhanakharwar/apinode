@@ -1,0 +1,38 @@
+<%-include ("common/HeadTag.ejs")%>
+  <%-include ("common/navbar")%>
+    <form style="width:500px; margin:80px 300px 0px 200px;" action="/updateuser" method="post">
+      <input type="hidden" name="id" value="<%=data.id%>">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="inputAddress">Name</label>
+          <input type="text" class="form-control" id="inputAddress" value="<%=data.name%>"
+            placeholder="Enter your name" name="name" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Email</label>
+          <input type="email" class="form-control" value="<%=data.email%>" id="inputEmail4" name="email" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Password</label>
+          <input type="password" class="form-control" value="<%=data.password %>" id="inputPassword4" name="password" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6"> 
+          <label for="inputCity">City</label>
+          <input type="text" class="form-control" value="<%=data.city%>" id="inputCity" name="city" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">State</label>
+          <select id="inputState" value="<%=data.state%>" class="form-control" name="state" required >
+            <option value="">Select option</option>
+            <option value="West Bengal">West Bengal</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Maharastra">Maharashtra</option>
+            <option value="Delhi">Delhi</option>
+          </select>
+        </div>
+      </div>
+      </div>
+      <button type="submit" class="btn btn-success">Update Details</button>
+    </form>
